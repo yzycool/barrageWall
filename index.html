@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <div class="danmu-container" id="danmuContainer"></div>
-    <div class="controls">
-      <input type="text" id="danmuInput" placeholder="输入弹幕" />
-      <button onclick="sendDanmu()">发送</button>
-      <button onclick="clearDanmu()">清除弹幕</button>
-    </div>
+    <main class="screenContainer" id="screenContainer"></main>
+    <footer class="controls">
+      <input type="text" id="screenBulletText" placeholder="输入弹幕" />
+      <button id="send">发送</button>
+      <button id="switch">打开弹幕</button>
+      <button id="clear">清除</button>
+    </footer>
 
     <script src="./index.js"></script>
   </body>

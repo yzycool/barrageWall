@@ -9,26 +9,66 @@ body {
   border: 1px solid #ccc;
   overflow: hidden;
 }
-
-.danmu {
-  position: absolute;
-  white-space: nowrap;
+footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+input[type='text'] {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none; /* 取消输入框获取焦点时的默认样式 */
+  transition: border-color 0.3s ease-in-out; /* 添加过渡效果 */
+}
+
+/* 输入框悬停时的样式 */
+input[type='text']:hover {
+  border-color: #999;
+}
+
+/* 输入框获得焦点时的样式 */
+input[type='text']:focus {
+  border-color: rgba(48, 116, 95, 0.3);
+  box-shadow: 0 0 8px rgba(48, 116, 95, 0.3); /* 添加焦点时的阴影效果 */
+}
+.btn-box {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 13px;
+  margin: 0 12px;
+  flex: 1;
+  color: rgb(51, 51, 51);
+  background-color: #fff;
+  border: 1px solid #7eb6ee;
+  /* background-image: linear-gradient(160deg, rgb(204, 251, 252), rgb(197, 234, 254), rgb(189, 211, 255)); */
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* 悬停时的样式 */
+.custom-button:hover {
+  background-color: #7eb6ee;
   color: #fff;
-  padding: 5px 10px;
-  animation: moveDanmu linear forwards;
 }
 
-.controls {
+/* 点击时的样式 */
+.custom-button:active {
+  background-color: #003d80;
+}
+.footer {
   margin-top: 10px;
-}
-
-@keyframes moveDanmu {
-  from {
-    left: 100%; /* 从右侧开始滚动 */
-  }
-  to {
-    left: -100%; /* 滚动到左侧边界外 */
-  }
 }

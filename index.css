@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.danmu-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.danmu {
+  position: absolute;
+  white-space: nowrap;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  animation: moveDanmu linear forwards;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+@keyframes moveDanmu {
+  from {
+    left: 100%; /* 从右侧开始滚动 */
+  }
+  to {
+    left: -100%; /* 滚动到左侧边界外 */
+  }
+}

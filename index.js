@@ -12,7 +12,6 @@ function addBullet() {
   const textDom = document.getElementById('screenBulletText')
   const inputVal = textDom.value
   if (!inputVal) {
-    alert('请输入弹幕内容')
     return
   }
   addInterval(createScreenBullet(inputVal))
@@ -28,13 +27,18 @@ function createScreenBullet(text) {
   const left = containerDOM.offsetWidth + 'px'
   let top = Math.floor(Math.random() * 400)
   top = top > 302 ? '302px' : `${top}px`
+
   bulletDom.style.cssText = `
           position: absolute;
           color: ${fontColor};
           font-size: ${fontSize};
           left: ${left};
           top: ${top};
+          white-space: nowrap;
       `
+  if (!isShow) {
+    bulletDom.style.opacity = 0
+  }
   containerDOM.append(bulletDom)
   return bulletDom
 }
@@ -45,8 +49,8 @@ function addInterval(intervalDom) {
     left--
     intervalDom.style.left = `${left}px`
     if (intervalDom.offsetLeft + intervalDom.offsetWidth < 0) {
-      intervalDom.style.left = containerDOM.offsetWidth + 'px'
-      left = intervalDom.offsetLeft
+      intervalDom.remove()
+      clearInterval(timer)
     }
   }, getRandomInteger(10, 40)) //区间10-40最佳
   timers.push(timer)
@@ -64,7 +68,7 @@ switchBtn.onclick = function () {
     }
     isShow = true
   }
-  switchBtn.innerText = isShow ? '关闭弹幕' : '打开弹幕'
+  switchBtn.innerText = isShow ? '隐藏弹幕' : '显示弹幕'
 }
 //清除所有弹幕
 clearBtn.onclick = function () {
